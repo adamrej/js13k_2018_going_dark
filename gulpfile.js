@@ -55,6 +55,21 @@ gulp.task('build_source', function() {
     .pipe(gulp.dest('build'));
 });
 
+gulp.task('build_kontra', function() {
+  var bundler = browserify('./src/kontra', {debug: !prod});
+  if (prod) {
+    bundler.plugin(require('bundle-collapser/plugin'));
+  }
+
+  return bundler
+    .bundle()
+    .on('error', browserifyError)
+    .pipe(source('kontra.js'))
+    .pipe(buffer())
+    .pipe(gulpif(prod, uglify()))
+    .pipe(gulp.dest('build'));
+});
+
 gulp.task('build_index', function() {
   return gulp.src('src/index.html')
     .pipe(gulpif(prod, htmlmin({
@@ -84,6 +99,7 @@ gulp.task('lint', function() {
     .pipe(eslint.format());
 });
 
+//Zips up the files for Distribution
 gulp.task('dist', ['build'], function() {
   if (!prod) {
     gutil.log(gutil.colors.yellow('WARNING'), gutil.colors.gray('Missing flag --prod'));

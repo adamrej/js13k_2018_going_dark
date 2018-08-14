@@ -1,11 +1,14 @@
-# JS13KGames Boilerplate
+#Going Dark
+## JS13KGames 2018 Entry
 
-## Quick start
+## The Game
 
-* Clone the repository
-* Update `package.json` with your informations
-* Delete `.git` directory
-* Delete unneeded files and blocks
+The AI in our latest 
+
+##How To Play
+
+Communicate with your fleet via the terminal to ensure your radio communications are encrypted.
+Keep all non key systems offline so as not to alert 
 
 ## Features
 
@@ -16,3 +19,9 @@
 * Minify assets
 * Compress as a ZIP archive
 * Serve your game during development
+
+## Thanks
+
+*JS13K Boilerplate Code
+*Lite Framework
+*Aseprite
